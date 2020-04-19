@@ -1,6 +1,6 @@
 <template>
     <div>
-        <top-search></top-search>
+        <search></search>
         <front-slide></front-slide>
         <font-marquee></font-marquee>
     </div>
@@ -9,14 +9,14 @@
 
 <script>
 
-import TopSearch from '@/views/TopSearch'
+import Search from '@/views/home/Search'
 import FrontSlide from '@/components/FrontSlide'
 import FontMarquee from '@/components/FontMarquee'
 
 export default {
    name: "Home",
    components:{
-       TopSearch,
+       Search,
        FrontSlide,
        FontMarquee,
    }

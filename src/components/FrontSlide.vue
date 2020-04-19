@@ -1,6 +1,6 @@
 <template>
-  <swiper loop auto :list="front_swiper_list"></swiper>
-</template>
+    <swiper loop auto :list="front_swiper_list"></swiper>
+ </template>
 
 <style>
 

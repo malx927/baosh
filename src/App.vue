@@ -1,20 +1,30 @@
 <template>
-  <div id="app">
+  <div id="app" >
+
+      <router-view></router-view>
+
+    <!-- <Footer></Footer> -->
     
-    <router-view></router-view>
   </div>
 </template>
 
 <script>
+import { ViewBox } from "vux";
+import Footer from "./components/Footer";
 export default {
-  name: 'app'
-}
+  name: "app",
+  components: {
+    ViewBox,
+    Footer
+  }
+};
 </script>
 
 <style lang="less">
-@import '~vux/src/styles/reset.less';
+@import "~vux/src/styles/reset.less";
 
 body {
   background-color: #fbf9fe;
+  height:100vh;
 }
 </style>
