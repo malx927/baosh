@@ -9,12 +9,12 @@
       <tabbar-item :link="{path:'/application'}" :selected="index==1" v-model="index">
         <img slot="icon" src="../assets/image/ic_nav_app_normal.png">
         <img slot="icon-active" src="../assets/image/ic_nav_app_actived.png">
-        <span slot="label">发现</span>
+        <span slot="label">留言</span>
       </tabbar-item>
       <tabbar-item :link="{path:'/mysettings'}" :selected="index==2" v-model="index">
         <img slot="icon" src="../assets/image/ic_nav_my_normal.png">
         <img slot="icon-active" src="../assets/image/ic_nav_my_pressed.png">
-        <span slot="label">我</span>
+        <span slot="label">我的</span>
       </tabbar-item>
     </tabbar>
   </div>
