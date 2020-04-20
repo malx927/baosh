@@ -6,8 +6,9 @@
 </template>
 
 <script>
-import { Panel } from 'vux'
+import { Panel,base64 } from 'vux'
 import { getEventList } from '@/network/newlist'
+import img_circle from '@/assets/image/circle-outline.png'
 export default {
 
   data() {
@@ -17,8 +18,9 @@ export default {
       list: [],
       footers: {
         title: "更多",
-        url: 'http://vux.li',
-      }
+        url: '',
+      },
+      img_circle: img_circle,
     }
   },
 
@@ -32,14 +34,13 @@ export default {
 
   mounted(){
     getEventList("events", 3).then(response=>{
-      console.log(response)
       let data = response.message
       let list = []
       for (var i in data) {
         list[i] = {}
         list[i].title = data[i].title
         list[i].url = data[i].img_url
-        list[i].src = '../assets/image/circle-outline.png'
+        list[i].src = this.img_circle
  
       }
       list.splice(0,5)
