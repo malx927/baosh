@@ -19,7 +19,7 @@ export default {
       footers: {
         title: "更多",
         url: {
-          path: '/home',
+          path: '/news',
           replace: false
         },
       }
@@ -63,5 +63,5 @@ export default {
   }
 };
 </script>
-<style lang='less' scoped>
+<style  scoped>
 </style>

@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       header: "物业动态",
-      type: "1",
+      type: "3",
       list: [],
       footers: {
         title: "更多",

@@ -6,6 +6,8 @@ import Home from '@/views/home/Home'
 const Detail = () => import('@/views/home/Detail')
 const Notices = () => import('@/views/notice/Notices')
 const News = () => import('@/views/news/News')
+const Events = () => import('@/views/events/Events')
+
 Vue.use(Router)
 
 export default new Router({
@@ -15,7 +17,7 @@ export default new Router({
       name: 'home',
       component: Home,
       meta: {
-        keepAlive: true // 不需要缓存
+        keepAlive: true // 
       }
     },
     {
@@ -23,7 +25,7 @@ export default new Router({
       name: 'notices',
       component: Notices,
       meta: {
-        keepAlive: true // 不需要缓存
+        keepAlive: true // 
       }
     },
     {
@@ -31,7 +33,15 @@ export default new Router({
       name: 'news',
       component: News,
       meta: {
-        keepAlive: true // 不需要缓存
+        keepAlive: true // 
+      }
+    },
+    {
+      path: '/events',
+      name: 'events',
+      component: Events,
+      meta: {
+        keepAlive: true // 
       }
     },
     {
