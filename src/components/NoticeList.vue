@@ -1,29 +1,35 @@
 
 <template>
   <div>
-    <panel :header="header" :list="list" :type="type" @on-img-error="onImgError"></panel>
+    <panel :header="title"  @on-click-header="onClick" :list="list" :type="type" @on-img-error="onImgError">
+    </panel>
   </div>
 </template>
 
 <script>
-import { Panel } from 'vux'
+import { Panel, Cell, Group } from 'vux'
 import { getNoticeList } from '@/network/newlist'
 export default {
 
   data() {
     return {
-      header: '物业通知',
+      title: '物业通知 >>',
       type: "1",
       list: [],
       footers: {
         title: "更多",
-        url: 'http://vux.li',
+        url: {
+          path: '',
+          replace: false
+        },
       }
     }
   },
 
   components: {
-    Panel
+    Panel,
+    Cell,
+    Group,
   },
 
   computed: {
@@ -38,7 +44,7 @@ export default {
       for (var i in data) {
         list[i] = {}
         list[i].title = data[i].title
-        list[i].url = data[i].img_url
+        list[i].url = {path: `/detail/${data[i].id}`}
  
       }
       list.splice(0,7)
@@ -51,6 +57,9 @@ export default {
   methods: {
     onImgError(item, $event) {
       console.log(item, $event);
+    },
+    onClick(){
+      this.$router.push("/notices")
     }
   }
 };

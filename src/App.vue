@@ -1,6 +1,9 @@
 <template>
-  <div id="app" >
-    <router-view></router-view>
+  <div id="app">
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"></router-view>
+    </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive"></router-view>
     <Footer></Footer>
   </div>
 </template>
@@ -22,6 +25,6 @@ export default {
 
 body {
   background-color: #fbf9fe;
-  height:100vh;
+  height: 100vh;
 }
 </style>
