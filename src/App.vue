@@ -1,20 +1,19 @@
 <template>
   <div id="app">
     <keep-alive>
-      <router-view v-if="$route.meta.keepAlive"></router-view>
+      <router-view v-if="$route.meta.keepAlive" transition-mode="out-in"></router-view>
     </keep-alive>
-    <router-view v-if="!$route.meta.keepAlive"></router-view>
+    <router-view v-if="!$route.meta.keepAlive" transition-mode="out-in"></router-view>
     <Footer></Footer>
   </div>
 </template>
 
 <script>
-import { ViewBox } from "vux";
+
 import Footer from "./components/Footer";
 export default {
   name: "app",
   components: {
-    ViewBox,
     Footer
   }
 };

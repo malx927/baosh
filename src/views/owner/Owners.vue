@@ -1,24 +1,20 @@
+
 <template>
   <div>
-    <panel
-      :header="header"
-      :list="list"
-      @on-click-header="onClick"
-      :type="type"
-      @on-img-error="onImgError"
-    ></panel>
+    <app-header :tag="header"></app-header>
+    <panel :header="header" :list="list" :footer="footers" :type="type" @on-img-error="onImgError"></panel>
   </div>
 </template>
 
 <script>
-import { Panel } from "vux";
 import { getOwnerArticleList } from "@/network/newlist";
 import img_circle from "@/assets/image/circle-outline.png";
+
+import { Panel } from "vux";
+import AppHeader from "@/components/AppHeader";
+
 export default {
-  components: {
-    Panel
-  },
-  props: {},
+  name: "News",
   data() {
     return {
       header: "业主投稿",
@@ -26,32 +22,41 @@ export default {
       list: [],
       footers: {
         title: "更多",
-        url: ""
+        url: {
+          path: "",
+          replace: false
+        }
       },
       img_circle: img_circle
     };
   },
-  watch: {},
+
+  components: {
+    Panel,
+    AppHeader
+  },
+
   computed: {},
+
+  mounted() {
+    this.getOwnerArticle()
+  },
+
   methods: {
     onImgError(item, $event) {
       console.log(item, $event);
     },
-    onClick() {
-      this.$router.push("/owners");
-    },
     getOwnerArticle() {
-      getOwnerArticleList("ownerarticle", 3).then(
+      getOwnerArticleList("owners", 20).then(
         response => {
           let data = response.message;
           let list = [];
           for (var i in data) {
             list[i] = {};
             list[i].title = data[i].title;
-            list[i].url = { path: `/detail/${data[i].id}` };
+            list[i].url = {path: `/detail/${data[i].id}`};
             list[i].src = img_circle;
           }
-          list.splice(0, 5);
           this.list = list;
         },
         err => {
@@ -59,13 +64,8 @@ export default {
         }
       );
     }
-  },
-  created() {},
-  mounted() {
-    this.getOwnerArticle()
   }
 };
 </script>
-
-<style  scoped>
+<style lang='less' scoped>
 </style>

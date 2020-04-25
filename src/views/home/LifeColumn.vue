@@ -1,6 +1,6 @@
 <template>
   <div>
-    <panel :header="header" :list="list" :type="type" @on-img-error="onImgError"></panel>
+    <panel :header="header" :list="list"  @on-click-header="onClick" :type="type" @on-img-error="onImgError"></panel>
   </div>
 </template>
 
@@ -35,7 +35,7 @@ export default {
         for (var i in data) {
           list[i] = {};
           list[i].title = data[i].title;
-          list[i].url = data[i].img_url;
+          list[i].url = {path: `/detail/${data[i].id}`};
           list[i].src = data[i].img_url;
           list[i].desc = data[i].zhaiyao;
           let meta = {
@@ -57,7 +57,10 @@ export default {
   methods: {
     onImgError(item, $event) {
       console.log(item, $event);
-    }
+    },
+    onClick(){
+      this.$router.push("/life")
+    },
   }
 };
 </script>

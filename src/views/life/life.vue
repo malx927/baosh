@@ -1,0 +1,68 @@
+
+<template>
+  <div>
+    <app-header :tag="header"></app-header>
+    <panel :header="header" :list="list" :footer="footers" :type="type" @on-img-error="onImgError"></panel>
+  </div>
+</template>
+
+<script>
+import { getLifeColumnList } from "@/network/newlist"
+import { Panel } from "vux";
+import AppHeader from "@/components/AppHeader";
+
+export default {
+  name: "News",
+  data() {
+    return {
+      header: "生活专栏",
+      type: "5",
+      list: [],
+      footers: {
+        title: "更多",
+        url: {
+          path: "",
+          replace: false
+        }
+      }
+    };
+  },
+
+  components: {
+    Panel,
+    AppHeader
+  },
+
+  computed: {},
+
+  mounted() {
+    this.getLife()
+  },
+
+  methods: {
+    onImgError(item, $event) {
+      console.log(item, $event);
+    },
+    getLife() {
+      getLifeColumnList("life", 20).then(
+        response => {
+          let data = response.message;
+          let list = [];
+          for (var i in data) {
+            list[i] = {};
+            list[i].title = data[i].title;
+            list[i].url = {path: `/detail/${data[i].id}`};
+            list[i].src = data[i].img_url;
+          }
+          this.list = list;
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }
+  }
+};
+</script>
+<style lang='less' scoped>
+</style>
