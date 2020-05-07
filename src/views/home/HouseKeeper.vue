@@ -5,7 +5,7 @@
       <cell-box>
       <flexbox>
         <flexbox-item>
-          <x-button mini plain type="primary" style="border-radius:5px;">管家介绍</x-button>
+          <x-button mini plain type="primary" style="border-radius:5px;" link="/keepers">管家介绍</x-button>
         </flexbox-item>
         <flexbox-item>
           <x-button mini plain type="primary" style="border-radius:5px;">管家事迹</x-button>

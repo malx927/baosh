@@ -2,6 +2,7 @@
 <template>
   <div>
     <app-header :tag="header"></app-header>
+    <front-slide></front-slide>
     <panel :header="header" :list="list" :footer="footers" :type="type" @on-img-error="onImgError"></panel>
   </div>
 </template>
@@ -10,6 +11,7 @@
 import { getLifeColumnList } from "@/network/newlist"
 import { Panel } from "vux";
 import AppHeader from "@/components/AppHeader";
+import FrontSlide from "@/components/FrontSlide";
 
 export default {
   name: "News",
@@ -30,7 +32,8 @@ export default {
 
   components: {
     Panel,
-    AppHeader
+    AppHeader,
+    FrontSlide,
   },
 
   computed: {},

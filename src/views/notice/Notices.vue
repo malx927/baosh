@@ -2,6 +2,7 @@
 <template>
   <div>
     <app-header :tag="title"></app-header>
+    <front-slide></front-slide>
     <panel :header="title" :list="list" :type="type" @on-img-error="onImgError"></panel>
   </div>
 </template>
@@ -9,11 +10,13 @@
 <script>
 import { Panel } from "vux";
 import AppHeader from "@/components/AppHeader";
+import FrontSlide from "@/components/FrontSlide";
 import { getNoticeList } from '@/network/newlist'
 export default {
   name: "Notice",
   components: {
     AppHeader,
+    FrontSlide,
     Panel
   },
 

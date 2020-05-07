@@ -9,6 +9,7 @@ const News = () => import('@/views/news/News')
 const Events = () => import('@/views/events/Events')
 const Life = () => import('@/views/life/Life')
 const Owners = () => import('@/views/owner/Owners')
+const Keepers = () => import('@/views/keeper/Keepers')
 
 Vue.use(Router)
 
@@ -68,6 +69,15 @@ const router =  new Router({
       meta: {
         keepAlive: true,
         title: '业主专栏'
+      }
+    },
+    {
+      path: '/keepers',
+      name: 'keepers',
+      component: Keepers,
+      meta: {
+        keepAlive: true,
+        title: '管家列表'
       }
     },
     {

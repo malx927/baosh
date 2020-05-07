@@ -2,6 +2,7 @@
 <template>
   <div>
     <app-header :tag="header"></app-header>
+    <front-slide></front-slide>
     <panel :header="header" :list="list" :type="type" @on-img-error="onImgError"></panel>
   </div>
 </template>
@@ -10,7 +11,7 @@
 
 import { Panel } from "vux";
 import AppHeader from "@/components/AppHeader";
-
+import FrontSlide from "@/components/FrontSlide";
 import { getEventList } from '@/network/newlist'
 import img_circle from '@/assets/image/circle-outline.png'
 
@@ -32,6 +33,7 @@ export default {
   components: {
     Panel,
     AppHeader,
+    FrontSlide,
   },
 
   computed: {
