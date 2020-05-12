@@ -36,6 +36,6 @@ export default {
 
 <style  scoped>
 .bottom-text-size{
-  font-size:15px;
+  font-size:0.8rem;
 }
 </style>

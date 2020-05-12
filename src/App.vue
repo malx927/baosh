@@ -26,4 +26,8 @@ body {
   background-color: #fbf9fe;
   height: 100vh;
 }
+#grid .weui-grid .weui-grid__icon{
+  width: 100%!important;
+  height: 100%!important;
+}
 </style>
